@@ -1,0 +1,163 @@
+  @import url('https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Big+Shoulders+Display&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    background-color: lightblue;
+    border-radius: 0.5rem;
+    width: 60rem;
+    height: 30rem;
+    margin-top: 25%;
+    margin-left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.part {
+    border-radius: 0.5rem;
+    color: hsl(0, 0%, 95%);
+}
+
+.sedan {
+    background-color: hsl(31, 77%, 52%);
+}
+
+.suv {
+    background-color: hsl(184, 100%, 22%)
+}
+
+.luxury {
+    background-color: hsl(179, 100%, 13%);
+}
+
+.info {
+    height: 65%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 8%;
+}
+
+.info img {
+    width: 25%;
+}
+
+.info h1 {
+    font-family: 'Big Shoulders Display';
+    letter-spacing: 0.5rem;
+    line-height: 5rem;
+    position: relative;
+    height: 3.7rem;
+    width: 100%;
+}
+
+.info h1::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #0087ca;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.info h1:hover::after {
+    text-decoration: underline;
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.info p {
+    font-family: 'Lexend Deca';
+    color: hsla(0, 0%, 100%, 0.75);
+}
+
+.more {
+    border-radius: 3rem;
+    margin-left: 8%;
+    margin-top: 15%;
+    width: 10rem;
+    height: 3rem;
+    text-align: center;
+    background-color: hsl(0, 0%, 95%); 
+    transition: width 1s;   
+}
+
+.sedan .more {
+    color: hsl(31, 77%, 52%);
+}
+
+.suv .more {
+    color: hsl(184, 100%, 22%);
+}
+
+.luxury .more {
+    color: hsl(179, 100%, 13%)
+}
+
+.more span {
+    position: relative;
+    top: 25%;
+    font-family: 'Lexend Deca';
+}
+
+.more:hover {
+    background-color: transparent;
+    border: 0.1rem solid white;
+    color: white;
+    width: 12rem;
+}
+
+@media only screen and (min-width: 320px) and (max-width: 480px) {
+    .card {
+        display: block;
+        width: 90%;
+        margin-top: 75%;
+    }
+    
+    .part {
+        height: 100%;
+    }
+
+    .info h1::after {
+        content: none;
+    }
+
+    .more:hover {
+        background-color: transparent;
+        border: 0.1rem solid white;
+        color: white;
+        width: 10rem;
+    }
+}
+
+@media only screen and (min-width: 768px) and (max-width: 1023px) {
+    .card {
+        display: block;
+        width: 90%;
+        margin-top: 35%;
+    }
+    
+    .part {
+        height: 100%;
+    }
+
+    .info h1::after {
+        content: none;
+    }
+
+    .more:hover {
+        background-color: transparent;
+        border: 0.1rem solid white;
+        color: white;
+        width: 10rem;
+    }
+}
