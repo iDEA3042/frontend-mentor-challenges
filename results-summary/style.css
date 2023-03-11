@@ -1,0 +1,168 @@
+  @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk&display=swap');
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.card {
+    border-radius: 4vh;
+    box-shadow: 1px 1px 6px;
+    height: 60vh;
+    width: 50vw;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.blue-part {
+    border-radius: 4vh;
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+    height: 60vh;
+    width: 50%;
+    position: absolute;
+}
+
+.blue-part h2, h1, p {
+    font-family: 'Hanken Grotesk';
+    text-align: center;
+    margin-top: 4vh;
+    color: hsl(241, 100%, 89%);
+}
+
+.blue-part h1 {
+    margin-top: 29vh;
+    color: hsl(0, 0%, 100%);
+}
+
+.circle {
+    height: 24vh;
+    width: 12vw;
+    border-radius: 50%;
+    position: absolute;
+    top: 18%;
+    left: 50%;
+    transform: translate(-50%);
+    background-image: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0));
+}
+
+.circle .num {
+    font-size: 3.5rem;
+    font-family: 'Hanken Grotesk';
+    font-weight: bold;
+    color: hsl(0, 0%, 100%);
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.circle .of {
+    font-size: 1.1rem;
+    font-family: 'Hanken Grotesk';
+    color: hsl(241, 100%, 89%);
+    position: absolute;
+    bottom: 25%;
+    left: 50%;
+    transform: translate(-50%);
+}
+
+.summary {
+    width: 50%;
+    height: 100%;
+    border-radius: 4vh;
+    float: right;
+}
+
+.summary h2 {
+    position: absolute;
+    top: 7%;
+    right: 32%;
+    font-family: 'Hanken Grotesk';
+}
+
+.rectangle {
+    border-radius: 1vh;
+    width: 75%;
+    height: 12%;
+    position: relative;
+    top: 20%;
+    left: 12%;
+    margin-bottom: 1.5vh;
+}
+
+.reaction {
+    background-color: hsla(0, 100%, 67%, 0.1);
+}
+
+.memory {
+    background-color: hsla(39, 100%, 56%, 0.1);
+}
+
+.verbal {
+    background-color: hsla(166, 100%, 37%, 0.1);
+}
+
+.visual {
+    background-color: hsla(234, 85%, 45%, 0.1);
+}
+
+.reaction .rectangle-text {
+    color: hsl(0, 100%, 67%);
+}
+
+.memory .rectangle-text {
+    color: hsl(39, 100%, 56%);
+}
+
+.verbal .rectangle-text {
+    color: hsl(166, 100%, 37%);
+}
+
+.visual .rectangle-text {
+    color: hsl(234, 85%, 45%);
+}
+
+.rectangle span {
+    color: grey;
+}
+
+.rectangle h4, img {
+    display: inline-block;
+    margin-top: 5%;
+    margin-left: 0.5vw;
+    vertical-align: middle;
+    font-family: 'Hanken Grotesk';
+}
+
+.rectangle .out-of {
+    float: right;
+    margin-right: 1vw;
+}
+
+.continue {
+    border-radius: 4vh;
+    position: relative;
+    top: 25%;
+    text-align: center;
+    width: 50%;
+    height: 10%;
+    margin: 0 auto;
+    background-color: hsl(224, 30%, 27%);
+}
+
+.continue span {
+    font-family: 'Hanken Grotesk';
+    color: white;
+    position: relative;
+    top: 25%;
+}
+
+.continue:hover {
+    background-image: linear-gradient(hsl(252, 100%, 67%), hsl(241, 81%, 54%));
+}
+
+.continue:active {
+    background-image: linear-gradient(hsl(123, 90%, 49%), hsl(72, 81%, 54%));
+}
