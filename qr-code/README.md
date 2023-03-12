@@ -1,1 +1,1 @@
-Live website: https://idea3042.github.io/qr-code/
+Live website: https://effulgent-marigold-0f80de.netlify.app/
