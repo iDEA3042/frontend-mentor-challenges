@@ -170,10 +170,10 @@ body {
 @media (min-width: 320px) and (max-width: 767px) {
     .container {
         width: 100%;
-        margin-top: 100%;
+        margin-top: 50%;
     }
     #hidden-container {
     width: 100%;
-    margin-top: 100%;        
+    margin-top: 50%;        
     }
 }
