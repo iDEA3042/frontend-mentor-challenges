@@ -106,6 +106,10 @@ input:focus {
     background-color: hsl(2, 65%, 91%, 0.5);
 }
 
+.error-input::placeholder {
+    color: red;
+}
+
 #first-button {
     background-color: var(--button-color);
     border-radius: 1vh;
@@ -127,10 +131,6 @@ input:focus {
 
 ::placeholder {
     font-size: 1.1rem;
-}
-
-.error-placeholder::placeholder {
-    color: (--hover-and-error-color);
 }
 
 #second-container {
