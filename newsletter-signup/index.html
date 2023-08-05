@@ -1,0 +1,47 @@
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Newsletter</title>
+        <link href="style.css" rel="stylesheet">
+        <link rel="icon" href="newsletter-sign-up-with-success-message-main/assets/images/favicon-32x32.png">
+    </head>
+    <body>
+        <main>
+            <div id="first-container">
+                <div class="left">
+                    <div class="left-text">
+                        <h1>Stay updated!</h1>
+                        <br>
+                        <br>
+                        <p>Join 60,000+ product managers receiving monthly updates on:</p>
+                        <br>
+                        <br>
+                        <ul>
+                            <li>Product discovery and building what matters</li>
+                            <li>Measuring to ensure updates are success</li>
+                            <li>And much more!</li>
+                        </ul>
+                        <br>
+                        <label for="email">Email address:</label>
+                        <p id="error-text">Valid email required</p>
+                        <input id="email" type="email" placeholder="email@company.com" pattern=".+@globex\.com">
+                        <button id ="first-button" type="button">Subscribe to monthly newsletter</button>
+                    </div>
+                </div>
+                <div class="right"></div>
+            </div>
+            <div id="second-container">
+                <div class="second-container-text">
+                    <img src="newsletter-sign-up-with-success-message-main/assets/images/icon-success.svg">
+                    <h1>Thanks for subscribing!</h1>
+                    <p>A confirmation email has been sent to <span id="span"></span>. Please open it and click the button inside to confirm your subscription.</p>
+                    <button id="second-button" type="button">Dismiss message</button>
+                </div>
+            </div>
+        </main>
+        <script src="script.js"></script>
+    </body>
+    </html>
