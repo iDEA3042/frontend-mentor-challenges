@@ -1,0 +1,117 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Manrope';
+    font-size: 13px;
+}
+
+:root {
+    --background-color: hsl(210, 46%, 95%);
+    --right-background-color: white;
+    --very-dark-grayish-blue: hsl(217, 19%, 35%);
+    --desatured-dark-blue: hsl(214, 17%, 51%);
+}
+
+body {
+    background-color: var(--background-color);
+    height: 100vh;
+    display: grid;
+    place-items: center;
+}
+
+.container {
+    width: 50vw;
+    height: 40vh;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+}
+
+.left {
+    background-image: url('/article-preview-component-master/images/drawers.jpg');
+    background-size: cover;
+}
+
+.right {
+    background-color: var(--right-background-color);
+    display: grid;
+    grid-template-rows: 4fr 2fr;
+    justify-items: center;
+}
+
+.right-text {
+    margin-top: 5%;
+    width: 85%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+p:first-child {
+    font-size: 1.8rem;
+    color: var(--very-dark-grayish-blue);
+    font-weight: 600;
+    letter-spacing: 0.09rem;
+}
+
+p:last-child {
+    font-size: 1.1rem;
+    color: var(--desatured-dark-blue);
+    font-weight: 400;
+    letter-spacing: 0.010rem;
+}
+
+.info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+}
+
+.avatar {
+    height: 6vh;
+    width: 3vw;
+    border-radius: 50%;
+    background-image: url(/article-preview-component-master/images/avatar-michelle.jpg);
+    background-size: cover;
+}
+
+.avatar-context {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    align-items: center;
+}
+
+.avatar-info {
+    display: grid;
+    grid-template-rows: 1fr 2.5fr;
+    margin-top: 25%;
+}
+
+.name {
+    font-weight: 600;
+}
+
+.date {
+    color: var(--desatured-dark-blue)
+}
+
+#share {
+    width: 12%;
+    height: 45%;
+    border-radius: 50%;
+    border: none;
+    background-image: url(/article-preview-component-master/images/icon-share.svg);
+    background-repeat: no-repeat;
+    background-color: var(--background-color);
+    background-position: center;
+}
+
+#share:hover {
+    cursor: pointer;
+    background-color: hsl(218, 10%, 68%);
+}
+
+#share:active {
+    
+}
