@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Card</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="/images/favicon-32x32.png" type="image/x-icon">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <div class="background-part"></div>
+
+    <main>
+
+        <div class="cards">
+
+            <div class="card">
+                
+                <div class="front-card-info">
+                    <div class="card-logo">
+
+                    </div>
+
+                    <div class="card-info">
+                        <span id="card-number">0000 0000 0000 0000</span>
+                        <div class="bottom-card-info">
+                            <span id="card-name">Jane Appleseed</span>
+                            <div class="card-date">
+                                <span id="card-date-month">00</span>/<span id="card-date-year">00</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="back-card-info">
+                    <span id="card-cvc">000</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="inputs">
+
+            <div class="input">
+                <label for="name-input">Cardholder name</label>
+                <input type="text" name="name-input" id="name-input" placeholder="e.g. Jane Appleseed" autocomplete="off">
+                <span id="name-error" class="error-text">Can't be blank or invalid format</span>
+            </div>
+
+            <div class="input">
+                <label for="number-input">Card number</label>
+                <input type="text" maxlength="19" name="number-input" id="number-input" placeholder="e.g. 1234 5678 9123 0000" autocomplete="off">
+                <span id="number-error" class="error-text">Can't be blank or invalid format</span>
+            </div>
+
+            <div class="input last-input">
+                
+                <div class="date-input">
+                    <label for="month-input">EXP. DATE (MM/YY)</label>
+                    <div class="date-inputs">
+                        <input type="text" maxlength="2" name="month-input" id="month-input" placeholder="MM" autocomplete="off">
+                        <input type="text" maxlength="2" name="year-input" id="year-input" placeholder="YY" autocomplete="off">
+                    </div>
+                    <span id="date-error" class="error-text">Can't be blank or invalid format</span>
+                </div>
+
+                <div class="cvc-input">
+                    <label for="cvc-input">CVC</label>
+                    <input type="text" maxlength="3" name="cvc-input" id="cvc-input" placeholder="e.g. 123" autocomplete="off">
+                    <span id="cvc-error" class="error-text">Can't be blank or invalid format</span>
+                </div>
+
+            </div>
+
+            <div class="success">
+                <img src="/images/icon-complete.svg" alt="Operation complete">
+                <h1>THANK YOU</h1>
+                <p>We've added your card details</p>
+            </div>
+
+            <button id="confirm">Confirm</button>
+            <button id="continue" style="display: none;">Continue</button>
+
+        </div>
+    </main>
+</body>
+</html>
