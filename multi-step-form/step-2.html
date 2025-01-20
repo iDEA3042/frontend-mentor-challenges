@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | Multi-step form</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="body.css">
+  <link rel="stylesheet" href="step-2.css">
+</head>
+
+<body onload="adjustPlanPick()">
+
+  <main>
+
+    <nav>
+
+      <a>
+        <div class="step-number">
+          <span>1</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 1</span>
+          <h4>YOUR INFO</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number" style="background-color: hsl(228, 100%, 84%);">
+          <span style="color: blue">2</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 2</span>
+          <h4>SELECT PLAN</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number">
+          <span>3</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 3</span>
+          <h4>ADD-ONS</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number">
+          <span>4</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 4</span>
+          <h4>SUMMARY</h4>
+        </div>
+      </a>
+
+    </nav>
+
+    <form>
+
+      <div class="text-container">
+        <h1>Select your plan</h1>
+        <p>You have the option of monthly or yearly billing.</p>
+      </div>
+
+      <div class="plan-options-container">
+
+        <div class="plan-types-container">
+
+          <button class="plan-button" type="button">
+
+            <div class="plan-button-info">
+              <img src="/assets/images/icon-arcade.svg" alt="Arcade plan">
+
+              <div class="button-plan-type-info">
+                <h2>Arcade</h2>
+                <span id="arcade-price">$9/mo</span>
+              </div>
+            </div>
+
+          </button>
+
+          <button class="plan-button" type="button">
+
+            <div class="plan-button-info">
+              <img src="/assets/images/icon-advanced.svg" alt="Advanced plan">
+
+              <div class="button-plan-type-info">
+                <h2>Advanced</h2>
+                <span id="advanced-price">$12/mo</span>
+              </div>
+            </div>
+
+          </button>
+
+          <button class="plan-button" type="button">
+
+            <div class="plan-button-info">
+              <img src="/assets/images/icon-pro.svg" alt="Pro plan">
+
+              <div class="button-plan-type-info">
+                <h2>Pro</h2>
+                <span id="pro-price">$15/mo</span>
+              </div>
+            </div>
+
+          </button>
+        </div>
+
+        <div class="plan-billing-container">
+
+          <div class="plan-billing-toggle-info">
+
+            <span id="monthly">Monthly</span>
+
+            <label class="switch">
+              <input id="toggle" type="checkbox" name="toggle">
+              <span class="slider round"></span>
+            </label>
+
+            <span id="yearly" style="color: hsl(231, 11%, 63%)">Yearly</span>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="buttons-container">
+
+        <button id="return" type="button">Go Back</button>
+        <button id="continue" type="submit">Next Step</button>
+
+      </div>
+    </form>
+  </main>
+
+  <script>
+
+    const planButtons = Array.from(document.getElementsByClassName('plan-button'));
+    const toggleSwitch = document.getElementById('toggle');
+
+    function adjustPlanPick() {
+
+      if (localStorage.getItem('plan')) {
+
+        switch (localStorage.getItem('plan')) {
+
+          case 'Arcade':
+            planButtons[0].style.border = '2px solid hsl(243, 100%, 62%)';
+            planButtons[0].style.backgroundColor = 'hsl(217, 100%, 97%)';
+            break;
+          case 'Advanced':
+            planButtons[1].style.border = '2px solid hsl(243, 100%, 62%)';
+            planButtons[1].style.backgroundColor = 'hsl(217, 100%, 97%)';
+            break;
+          case 'Pro':
+            planButtons[2].style.border = '2px solid hsl(243, 100%, 62%)';
+            planButtons[2].style.backgroundColor = 'hsl(217, 100%, 97%)';
+            break;
+        }
+      }
+
+      if (localStorage.getItem('billing')) {
+
+        if (localStorage.getItem('billing') === 'yearly') {
+
+          toggle.checked = true;
+          monthly.style.color = 'hsl(231, 11%, 63%)';
+          yearly.style.color = 'hsl(213, 96%, 18%)';
+          
+          planButtons.forEach(plan => {
+
+            const bonus = document.createElement('span');
+            bonus.textContent = '2 months free';
+            bonus.style.display = 'block';
+            bonus.style.textAlign = 'start';
+            bonus.style.color = 'hsl(213, 96%, 18%)';
+            plan.children[0].children[1].append(bonus);
+          })
+        }
+      }
+    }
+
+    for (let i = 0; i < planButtons.length; i++) {
+
+      planButtons[0].onclick = () => {
+        planButtons[1].style.backgroundColor = 'transparent';
+        planButtons[2].style.backgroundColor = 'transparent';
+        planButtons[1].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[2].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[0].style.border = '2px solid hsl(243, 100%, 62%)';
+        planButtons[0].style.backgroundColor = 'hsl(217, 100%, 97%)';
+        localStorage.setItem('plan', 'Arcade');
+      }
+
+      planButtons[1].onclick = () => {
+        planButtons[0].style.backgroundColor = 'transparent';
+        planButtons[2].style.backgroundColor = 'transparent';
+        planButtons[0].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[2].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[1].style.border = '2px solid hsl(243, 100%, 62%)';
+        planButtons[1].style.backgroundColor = 'hsl(217, 100%, 97%)';
+        localStorage.setItem('plan', 'Advanced');
+      }
+
+      planButtons[2].onclick = () => {
+        planButtons[1].style.backgroundColor = 'transparent';
+        planButtons[0].style.backgroundColor = 'transparent';
+        planButtons[1].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[0].style.border = '1px solid hsl(231, 11%, 63%)';
+        planButtons[2].style.border = '2px solid hsl(243, 100%, 62%)';
+        planButtons[2].style.backgroundColor = 'hsl(217, 100%, 97%)';
+        localStorage.setItem('plan', 'Pro');
+      }
+    }
+
+    toggleSwitch.addEventListener('click', () => {
+
+      const monthly = document.getElementById('monthly');
+      const yearly = document.getElementById('yearly');
+
+      const arcadePrice = document.getElementById('arcade-price');
+      const advancedPrice = document.getElementById('advanced-price');
+      const proPrice = document.getElementById('pro-price');
+
+      if (toggleSwitch.checked) {
+
+        localStorage.setItem('billing', 'yearly');
+
+        monthly.style.color = 'hsl(231, 11%, 63%)';
+        yearly.style.color = 'hsl(213, 96%, 18%)';
+
+        arcadePrice.textContent = '$90/yr';
+        advancedPrice.textContent = '$120/yr';
+        proPrice.textContent = '$150/yr';
+
+        planButtons.forEach(plan => {
+
+          const bonus = document.createElement('span');
+          bonus.textContent = '2 months free';
+          bonus.style.display = 'block';
+          bonus.style.textAlign = 'start';
+          bonus.style.color = 'hsl(213, 96%, 18%)';
+          plan.children[0].children[1].append(bonus);
+        })
+
+      } else if (!toggleSwitch.checked) {
+
+        localStorage.setItem('billing', 'monthly');
+
+        monthly.style.color = 'hsl(213, 96%, 18%)';
+        yearly.style.color = 'hsl(231, 11%, 63%)';
+
+        arcadePrice.textContent = '$9/mo';
+        advancedPrice.textContent = '$12/mo';
+        proPrice.textContent = '$15/mo';
+
+        planButtons.forEach(plan => {
+
+          plan.children[0].children[1].children[2].remove();
+        })
+      }
+    })
+
+    const returnButton = document.getElementById('return');
+
+    returnButton.addEventListener('click', () => {
+
+      window.location.href = 'step-1.html';
+    })
+
+    const form = document.querySelector('form');
+
+    form.addEventListener('submit', (e) => {
+
+      e.preventDefault();
+
+      if (!toggle.checked) {
+
+        localStorage.setItem('billing', 'monthly');
+      }
+
+      if (!localStorage.getItem('plan')) {
+        return;
+      } else {
+        window.location.href = 'step-3.html';
+      }
+    })
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Multi-step form</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="step-4.css">
+</head>
+
+<body onload="adjustEndPayment()">
+    <main>
+        <nav>
+
+            <a>
+                <div class="step-number">
+                    <span>1</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 1</span>
+                    <h4>YOUR INFO</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number">
+                    <span">2</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 2</span>
+                    <h4>SELECT PLAN</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number">
+                    <span>3</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 3</span>
+                    <h4>ADD-ONS</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number" style="background-color: hsl(228, 100%, 84%);">
+                    <span style="color: hsl(213, 96%, 18%)">4</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 4</span>
+                    <h4>SUMMARY</h4>
+                </div>
+            </a>
+
+        </nav>
+
+        <form class="confirmation">
+
+            <div class="heading-container">
+                <h1>Finishing up</h1>
+                <p>Double check everything looks OK before confirming.</p>
+            </div>
+
+            <div class="confirmation-container">
+
+                <div class="prices-container">
+
+                    <div class="plan-container">
+                        <div class="plan-name">
+                            <h3 id="plan">Arcade (Monthly)</h3>
+                            <a href="step-2.html">Change</a>
+                        </div>
+                        <div class="plan-price">
+                            <span id="plan-price">$9/mo</span>
+                        </div>
+                    </div>
+
+                    <div class="add-on-container">
+                        <div class="add-on">
+                            <span id="add-on-service"></span>
+                            <span id="add-on-service-price"></span>
+                        </div>
+                        <div class="add-on">
+                            <span id="add-on-storage"></span>
+                            <span id="add-on-storage-price"></span>
+                        </div>
+                        <div class="add-on">
+                            <span id="add-on-customization"></span>
+                            <span id="add-on-customization-price"></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="total-price-container">
+                    <span id="total-price-span">Total (per month)</span>
+                    <span id="total-price-monthly">+$12/mo</span>
+                </div>
+
+
+            </div>
+
+            <div class="buttons-container">
+
+                <button id="return" type="button">Go Back</button>
+                <button id="continue" type="submit">Confirm</button>
+
+            </div>
+        </form>
+    </main>
+
+    <script>
+
+        function adjustEndPayment() {
+
+            const plan = document.getElementById('plan');
+            const planPrice = document.getElementById('plan-price');
+
+            let planPrice$;
+
+            const addOnService = document.getElementById('add-on-service');
+            const addOnServicePrice = document.getElementById('add-on-service-price');
+
+            const addOnStorage = document.getElementById('add-on-storage');
+            const addOnStoragePrice = document.getElementById('add-on-storage-price');
+
+            const addOnCustomization = document.getElementById('add-on-customization');
+            const addOnCustomizationPrice = document.getElementById('add-on-customization-price');
+
+            let servicePrice = 0,
+                storagePrice = 0,
+                customizationPrice = 0;
+
+            const totalPriceMonthly = document.getElementById('total-price-monthly');
+
+            if (localStorage.getItem('billing') === 'yearly') {
+
+                if (localStorage.getItem('plan')) {
+
+                    plan.textContent = localStorage.getItem('plan') + ' (Yearly)';
+
+                    switch (localStorage.getItem('plan')) {
+
+                        case 'Arcade':
+                            planPrice$ = 90;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                            break;
+                        case 'Advanced':
+                            planPrice$ = 120;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                            break;
+                        case 'Pro':
+                            planPrice$ = 150;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                    }
+                }
+
+                if (localStorage.getItem('service-add-on')) {
+
+                    servicePrice = 10;
+                    addOnService.textContent = 'Online service';
+                    addOnServicePrice.textContent = `+$${servicePrice}/mo`;
+                }
+
+                if (localStorage.getItem('storage-add-on')) {
+
+                    storagePrice = 20;
+                    addOnStorage.textContent = 'Larger storage';
+                    addOnStoragePrice.textContent = `+$${storagePrice}/mo`;
+                }
+
+                if (localStorage.getItem('customization-add-on')) {
+
+                    customizationPrice = 20;
+                    addOnCustomization.textContent = 'Customizable profile';
+                    addOnCustomizationPrice.textContent = `+$${customizationPrice}/mo`;
+                }
+
+                let totalPrice = planPrice$ + servicePrice + storagePrice + customizationPrice;
+
+                totalPriceMonthly.textContent = '+$' + totalPrice + '/yr';
+
+            } else if (localStorage.getItem('billing') === 'monthly') {
+
+                if (localStorage.getItem('plan')) {
+
+                    plan.textContent = localStorage.getItem('plan') + ' (Monthly)';
+
+                    switch (localStorage.getItem('plan')) {
+
+                        case 'Arcade':
+                            planPrice$ = 9;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                            break;
+                        case 'Advanced':
+                            planPrice$ = 12;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                            break;
+                        case 'Pro':
+                            planPrice$ = 15;
+                            planPrice.textContent = `$${planPrice$}/mo`;
+                            break;
+                    }
+                }
+
+
+                if (localStorage.getItem('service-add-on')) {
+
+                    servicePrice = 1;
+                    addOnService.textContent = 'Online service';
+                    addOnServicePrice.textContent = `+$${servicePrice}/mo`;
+                }
+
+                if (localStorage.getItem('storage-add-on')) {
+
+                    storagePrice = 2;
+                    addOnStorage.textContent = 'Larger storage';
+                    addOnStoragePrice.textContent = `+$${storagePrice}/mo`;
+                }
+
+                if (localStorage.getItem('customization-add-on')) {
+
+                    customizationPrice = 2;
+                    addOnCustomization.textContent = 'Customizable profile';
+                    addOnCustomizationPrice.textContent = `+$${customizationPrice}/mo`;
+                }
+
+                let totalPrice = planPrice$ + servicePrice + storagePrice + customizationPrice;
+
+                totalPriceMonthly.textContent = '+$' + totalPrice + '/mo';
+
+            }
+        }
+
+        const returnButton = document.getElementById('return');
+
+        returnButton.addEventListener('click', () => {
+            window.location.href = 'step-3.html';
+        })
+
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+
+            window.location.href = 'step-5.html';
+        })
+    </script>
+</body>
+
+</html>

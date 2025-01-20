@@ -1,0 +1,158 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 60%;
+    height: 90%;
+}
+
+form .heading-container h1 {
+    color: hsl(213, 96%, 18%);
+}
+
+form .heading-container p {
+    color: hsl(231, 11%, 63%);
+    margin-top: 2%;
+}
+
+.confirmation-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50%;
+}
+
+.prices-container {
+    border-radius: 10px;
+    background-color: hsl(217, 100%, 97%);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 100%;
+    height: 70%;
+}
+
+.plan-container {
+    border-bottom: 1px solid hsl(231, 11%, 63%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 95%;
+    height: 40%;
+}
+
+.plan-name {
+    color: hsl(213, 96%, 18%);
+    height: 70%;
+}
+
+.plan-name a {
+    color: hsl(231, 11%, 63%);
+}
+
+.plan-price span {
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+}
+
+.add-on-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 95%;
+    height: 40%;
+}
+
+.add-on {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.add-on span {
+    color: hsl(213, 96%, 18%);
+}
+
+#add-on-service, #add-on-storage, #add-on-customization {
+    color: hsl(231, 11%, 63%);
+}
+
+.total-price-container {
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+}
+
+#total-price-span {
+    color: hsl(231, 11%, 63%);
+}
+
+#total-price-monthly {
+    color: hsl(243, 100%, 62%);
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.buttons-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 9%;
+}
+
+.buttons-container #return {
+    border: none;
+    background-color: transparent;
+    color: hsl(231, 11%, 63%)   ;
+    font-size: 1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.buttons-container #return:hover {
+    color: hsl(213, 96%, 18%);
+}
+
+.buttons-container #continue {
+    border: none;
+    border-radius: 10px;
+    background-color: hsl(243, 100%, 62%);
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    width: 25%;
+    height: 100%;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.buttons-container #continue:hover {
+    background-color: hsl(244, 39%, 37%);
+}
+
+@media only screen and (max-width: 767px) {
+
+    form {
+        font-size: 0.9em;
+        width: 90%;
+        height: 100%;
+    }
+
+    .buttons-container {
+        height: 8%;
+    }
+
+    #total-price-monthly {
+        font-size: 1.2em;
+    }
+
+    .buttons-container #continue {
+        border-radius: 5px;
+        width: 30%;
+    }
+}

@@ -1,0 +1,99 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 60%;
+    height: 90%;
+}
+
+.step-input-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 76.5%;
+}
+
+.input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 25%;
+}
+
+.text-container h1 {
+    color: hsl(213, 96%, 18%);
+}
+
+.text-container p {
+    color: hsl(231, 11%, 63%);
+    margin-top: 2%;
+}
+
+.input-container .label-error {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.input-container .label-error span {
+    color: hsl(354, 84%, 57%);
+    display: none;
+}
+
+.input-container label {
+    color: hsl(243, 100%, 62%);
+}
+
+.input-container input {
+    border: 1px solid hsl(231, 11%, 63%);
+    border-radius: 10px;
+    color: hsl(213, 96%, 18%);
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 1%;
+    padding-left: 3%;
+    height: 45%;
+    outline: none;
+}
+
+.input-container input:focus {
+    border: 2px solid hsl(243, 100%, 62%);
+}
+
+.buttons-container {
+    width: 100%;
+    height: 9%;
+}
+
+.buttons-container #continue {
+    border: none;
+    border-radius: 10px;
+    background-color: hsl(213, 96%, 18%);
+    font-size: 1em;
+    font-weight: bold;
+    color: white;
+    float: right;
+    width: 25%;
+    height: 100%;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+
+.buttons-container #continue:hover {
+    background-color: hsl(244, 39%, 37%);
+}
+
+@media only screen and (max-width: 767px) {
+
+    form {
+        font-size: 0.9em;
+        width: 90%;
+        height: 95%;
+    }
+
+    .buttons-container #continue {
+        width: 35%;
+    }
+}

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Mentor | Multi-step form</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <link rel="stylesheet" href="body.css">
+    <link rel="stylesheet" href="step-3.css">
+</head>
+
+<body onload="adjustAddOnPayment()">
+    <main>
+        <nav>
+
+            <a>
+                <div class="step-number">
+                    <span>1</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 1</span>
+                    <h4>YOUR INFO</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number">
+                    <span">2</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 2</span>
+                    <h4>SELECT PLAN</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number" style="background-color: hsl(228, 100%, 84%);">
+                    <span style="color: hsl(213, 96%, 18%)">3</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 3</span>
+                    <h4>ADD-ONS</h4>
+                </div>
+            </a>
+
+            <a>
+                <div class="step-number">
+                    <span>4</span>
+                </div>
+
+                <div class="step-info">
+                    <span>STEP 4</span>
+                    <h4>SUMMARY</h4>
+                </div>
+            </a>
+
+        </nav>
+
+        <form class="add-ons">
+
+            <div class="heading-container">
+                <h1>Pick add-ons</h1>
+                <p>Add-ons help enhance your gaming experience.</p>
+            </div>
+
+            <div class="add-on-buttons-container">
+
+                <div class="add-on-button">
+
+                    <div class="add-on-button-checkbox-info">
+                        <input type="checkbox" name="add-on" id="service">
+                        <label for="service">
+                            <h3>Online Service</h3>
+                            <span>Access to multiplayer games</span>
+                        </label>
+                    </div>
+
+                    <span class="price">+$1/mo</span>
+
+                </div>
+
+                <div class="add-on-button">
+
+                    <div class="add-on-button-checkbox-info">
+                        <input type="checkbox" name="add-on" id="storage">
+                        <label for="storage">
+                            <h3>Larger storage</h3>
+                            <span>Extra 1TB of cloud save</span>
+                        </label>
+                    </div>
+
+                    <span class="price">+$2/mo</span>
+
+                </div>
+
+                <div class="add-on-button">
+
+                    <div class="add-on-button-checkbox-info">
+                        <input type="checkbox" name="add-on" id="customization">
+                        <label for="customization">
+                            <h3>Customizable profile</h3>
+                            <span>Custom theme on your profile</span>
+                        </label>
+                    </div>
+
+                    <span class="price">+$2/mo</span>
+
+                </div>
+            </div>
+
+            <div class="buttons-container">
+
+                <button id="return" type="button">Go Back</button>
+                <button id="continue" type="submit">Next Step</button>
+
+            </div>
+        </form>
+    </main>
+
+    <script>
+        const service = document.getElementById('service');
+        const storage = document.getElementById('storage');
+        const customization = document.getElementById('customization');
+
+        function adjustAddOnPayment() {
+
+            if (localStorage.getItem('billing') === 'yearly') {
+
+                const prices = document.getElementsByClassName('price');
+
+                prices[0].textContent = '+$10/yr';
+                prices[1].textContent = '+$20/yr';
+                prices[2].textContent = '+$20/yr';
+            }
+            
+            if (localStorage.getItem('service-add-on')) {
+
+                service.checked = true;
+                service.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                service.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+            }
+
+            if (localStorage.getItem('storage-add-on')) {
+
+                storage.checked = true;
+                storage.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                storage.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+            }
+
+            if (localStorage.getItem('customization-add-on')) {
+
+                customization.checked = true;
+                customization.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                customization.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+            }
+        }
+
+        service.onclick = () => {
+
+            if (service.checked) {
+                service.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                service.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+                localStorage.setItem('service-add-on', 'service');
+            } else {
+                service.closest('.add-on-button').style.border = '1px solid hsl(231, 11%, 63%)';
+                service.closest('.add-on-button').style.backgroundColor = 'transparent';
+                localStorage.removeItem('service-add-on');
+            }
+
+        }
+
+        storage.onclick = () => {
+
+            if (storage.checked) {
+                storage.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                storage.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+                localStorage.setItem('storage-add-on', 'storage');
+            } else {
+                storage.closest('.add-on-button').style.border = '1px solid hsl(231, 11%, 63%)';
+                storage.closest('.add-on-button').style.backgroundColor = 'transparent';
+                localStorage.removeItem('storage-add-on');
+            }
+
+        }
+
+        customization.onclick = () => {
+            if (customization.checked) {
+                customization.closest('.add-on-button').style.border = '2px solid hsl(243, 100%, 62%)';
+                customization.closest('.add-on-button').style.backgroundColor = 'hsl(217, 100%, 97%)';
+                localStorage.setItem('customization-add-on', 'customization');
+
+            } else {
+                customization.closest('.add-on-button').style.border = '1px solid hsl(231, 11%, 63%)';
+                customization.closest('.add-on-button').style.backgroundColor = 'transparent';
+                localStorage.removeItem('customization-add-on');
+            }
+
+        }
+
+        const returnButton = document.getElementById('return');
+
+        returnButton.addEventListener('click', () => {
+            window.location.href = 'step-2.html';
+        })
+
+        const form = document.querySelector('form');
+
+        form.addEventListener('submit', (e) => {
+
+            e.preventDefault();
+
+            if (!service.checked && !storage.checked && !customization.checked) {
+                return;
+            } else {
+                window.location.href = 'step-4.html';
+            }
+        })
+
+    </script>
+</body>
+
+</html>

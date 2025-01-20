@@ -1,0 +1,252 @@
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60%;
+  height: 90%;
+}
+
+.text-container h1 {
+  color: hsl(213, 96%, 18%);
+}
+
+.text-container p {
+  color: hsl(231, 11%, 63%);
+  margin-top: 2%;
+}
+
+.plan-options-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 50%;
+}
+
+.plan-types-container {
+  display: flex;
+  justify-content: space-between;
+  height: 70%;
+}
+
+.plan-types-container button {
+  border: 1px solid hsl(231, 11%, 63%);
+  border-radius: 10px;
+  background-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.plan-types-container button:hover {
+  border: 2px solid hsl(244, 39%, 37%);
+}
+
+.plan-button-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 80%;
+  height: 80%;
+}
+
+.plan-button-info h2 {
+  color: hsl(213, 96%, 18%);
+}
+
+.plan-button-info span {
+  color: hsl(231, 11%, 63%);
+}
+
+.button-plan-type-info {
+  text-align: start;
+}
+
+.plan-billing-container {
+  border-radius: 10px;
+  background-color: hsl(217, 100%, 97%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 20%;
+}
+
+.plan-billing-toggle-info {
+  color: hsl(213, 96%, 18%);
+  font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 40%;
+  height: 100%;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 25%;
+  height: 50%;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: hsl(213, 96%, 18%);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  width: 35%;
+  height: 65%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked+.slider {
+  background-color: hsl(213, 96%, 18%);
+}
+
+input:focus+.slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked+.slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  height: 9%;
+}
+
+.buttons-container #return {
+  border: none;
+  background-color: transparent;
+  color: hsl(231, 11%, 63%);
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.buttons-container #return:hover {
+  color: hsl(213, 96%, 18%);
+}
+
+.buttons-container #continue {
+  border: none;
+  border-radius: 10px;
+  background-color: hsl(213, 96%, 18%);
+  font-size: 1em;
+  font-weight: bold;
+  color: white;
+  width: 25%;
+  height: 100%;
+  cursor: pointer;
+  letter-spacing: 1px;
+  transition: all 0.3s;
+}
+
+.buttons-container #continue:hover {
+  background-color: hsl(244, 39%, 37%);
+}
+
+@media only screen and (max-width: 767px) {
+
+  body {
+    align-items: center;
+    height: 100vh;
+  }
+
+  form {
+    font-size: 0.9em;
+    width: 90%;
+    height: 100%;
+  }
+
+  .plan-types-container {
+    flex-direction: column;
+    height: 80%;
+  }
+
+  .plan-types-container button {
+    width: 100%;
+    height: 50%;
+  }
+
+  .plan-button {
+    height: 10%;
+  }
+
+  .plan-button-info {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    width: 95%;
+  }
+
+  .button-plan-type-info {
+    font-size: 0.9em;
+    margin-left: 5%;
+  }
+
+  .plan-button-info img {
+    width: 15%;
+  }
+
+  .plan-billing-toggle-info {
+    width: 70%;
+  }
+
+  .switch {
+    width: 28%;
+    height: 40%;
+  }
+
+  .slider:before {
+    width: 32%;
+  }
+
+  .buttons-container {
+    height: 7%;
+  }
+
+  .buttons-container #continue {
+    border-radius: 5px;
+    width: 35%;
+  }
+}

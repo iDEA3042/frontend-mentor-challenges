@@ -1,0 +1,31 @@
+.thank-you-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 60%;
+    height: 45%;
+    text-align: center;
+}
+
+.thank-you-container h1 {
+    color: hsl(213, 96%, 18%);
+    font-weight: bold;
+}
+
+.thank-you-container p {
+    color: hsl(231, 11%, 63%);
+}
+
+.thank-you-container a {
+    color: hsl(231, 11%, 63%);
+    text-decoration: none;
+}
+
+@media only screen and (max-width: 767px) {
+
+    .thank-you-container {
+        font-size: 0.9em;
+        width: 90%;
+    }
+}

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frontend Mentor | Multi-step form</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="body.css">
+  <link rel="stylesheet" href="step-1.css">
+</head>
+
+<body onload="populateForm()">
+
+  <main>
+
+    <nav>
+
+      <a>
+        <div class="step-number" style="background-color: hsl(228, 100%, 84%);">
+          <span style="color: blue">1</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 1</span>
+          <h4>YOUR INFO</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number">
+          <span>2</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 2</span>
+          <h4>SELECT PLAN</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number">
+          <span>3</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 3</span>
+          <h4>ADD-ONS</h4>
+        </div>
+      </a>
+
+      <a>
+        <div class="step-number">
+          <span>4</span>
+        </div>
+
+        <div class="step-info">
+          <span>STEP 4</span>
+          <h4>SUMMARY</h4>
+        </div>
+      </a>
+
+    </nav>
+
+    <form id="form">
+
+      <div class="step-input-container">
+
+        <div class="input-container text-container">
+          <h1>Personal Info</h1>
+          <p>Please provide your name, email address, and phone number.</p>
+        </div>
+
+        <div class="input-container">
+          <div class="label-error">
+            <label for="name">Name</label>
+            <span class="input-error">This field is required</span>
+          </div>
+          <input id="name" type="text" name="name" placeholder="e.g. Stephen King" autocomplete="off">
+        </div>
+
+        <div class="input-container">
+          <div class="label-error">
+            <label for="email">Email Address</label>
+            <span class="input-error">This field is required</span>
+          </div>
+          <input id="email" type="email" name="email" placeholder="e.g. stephenking@lorem.com" autocomplete="off">
+        </div>
+
+        <div class="input-container">
+          <div class="label-error">
+            <label for="phone">Phone Number</label>
+            <span class="input-error">This field is required</span>
+          </div>
+          <input id="phone" type="tel" name="phone" maxlength="15" placeholder="+1 234 567 890" autocomplete="off">
+        </div>
+      </div>
+
+      <div class="buttons-container">
+        <button id="continue" type="submit">Next Step</button>
+      </div>
+
+    </form>
+  </main>
+
+  <script>
+    const form = document.getElementById('form');
+    const name = document.getElementById('name');
+    const email = document.getElementById('email');
+    const phone = document.getElementById('phone');
+
+    name.oninput = () => {
+
+      name.value = name.value.replace(/[^a-žA-Ž \ ]/, '');
+    }
+
+    phone.oninput = () => {
+
+      phone.value = phone.value.replace(/[^0-9 \+ ]/, '');
+    }
+
+    form.addEventListener('submit', (e) => {
+
+      e.preventDefault();
+
+      const inputs = document.getElementsByTagName('input');
+      const errors = document.getElementsByClassName('input-error');
+
+      for (let i = 0; i < inputs.length; i++) {
+
+        if (inputs[i].value === '') {
+          errors[i].style.display = 'block';
+          inputs[i].style.borderColor = 'hsl(354, 84%, 57%)';
+        } else {
+          errors[i].style.display = 'none';
+          inputs[i].style.borderColor = 'hsl(231, 11%, 63%)';
+        }
+      }
+
+      if (name.value && email.value && phone.value !== '') {
+
+        localStorage.setItem('name', name.value);
+        localStorage.setItem('email', email.value);
+        localStorage.setItem('phone', phone.value);
+
+        window.location.href = 'step-2.html';
+      }
+
+    })
+
+    function populateForm() {
+
+      if (localStorage) {
+        name.value = localStorage.getItem('name');
+        email.value = localStorage.getItem('email');
+        phone.value = localStorage.getItem('phone');
+      }
+    }
+  </script>
+</body>
+
+</html>
