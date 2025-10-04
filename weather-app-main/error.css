@@ -1,0 +1,48 @@
+.network-error-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 30%;
+    height: 40vh;
+}
+
+.network-error-container img {
+    width: 15%;
+}
+
+.network-error-container h2 {
+    color: var(--white-color);
+    text-align: center;
+}
+
+.network-error-container p {
+    color: var(--lightest-grey-color);
+    text-align: center;
+}
+
+.network-error-container button {
+    border: none;
+    border-radius: 10px;
+    background-color: var(--darkest-grey-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 20%;
+    height: 15%;
+    cursor: pointer;
+}
+
+.network-error-container button:hover {
+    background-color: var(--mid-grey-color);
+}
+
+.network-error-container button img {
+    width: 20%;
+}
+
+.no-search-result-heading {
+    color: var(--white-color);
+    margin-top: 3%;
+}

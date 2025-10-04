@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Frontend Mentor | Weather app</title>
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&display=swap" rel="stylesheet">
+
+	<link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+	
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="header.css">
+	<link rel="stylesheet" href="underheader.css">
+	<link rel="stylesheet" href="blocks.css">
+	<link rel="stylesheet" href="queries.css">
+	<link rel="stylesheet" href="error.css">
+
+	<script src="./variables.js" defer></script>
+	<script src="./misc.js" defer></script>
+	<script src="./connect.js" defer></script>
+	<script src="./dynamic.js" defer></script>
+	<script src="./interactive.js" defer></script>
+  
+</head>
+
+<body>
+	<header>
+		<div class="units-select-hover-container">
+			<button id="change-units-button" type="button">Switch to imperial</button>
+
+			<div class="temperature-units-container">
+				<h6>Temperature</h6>
+				<button id="celsius-button" class="units-button-active unit-button" type="button"><span>Celsius (C)</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+				<button id="fahrenheit-button" class="unit-button" type="button"><span>Fahrenheit (F)</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+			</div>
+
+			<div class="wind-units-container">
+				<h6>Wind speed</h6>
+				<button id="kmh-button" class="units-button-active unit-button" type="button"><span>km/h</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+				<button id="mph-button" class="unit-button" type="button"><span>mph</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+			</div>
+
+			<div class="precipitation-units-container">
+				<h6>Precipitation</h6>
+				<button id="millimeters-button" class="units-button-active unit-button" type="button"><span>Millimeters (mm)</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+				<button id="inches-button" class="unit-button" type="button"><span>Inches (in)</span> <img src="./assets/images/icon-checkmark.svg" alt="Checkmarked">
+				</button>
+			</div>
+		</div>
+
+		<img src="./assets/images/logo.svg" alt="Weather app logo">
+
+		<div class="units-select-container">
+			<img src="./assets/images/icon-units.svg" alt="Select units icon">
+			<span for="units-select">Units</span>
+			<img src="./assets/images/icon-dropdown.svg" alt="Dropdown menu">
+		</div>
+	</header>
+
+	<section class="hero">
+		<h1>How's the sky looking today?</h1>
+		
+		<div class="search-area-container">
+			<div class="input-container">
+				<img src="./assets/images/icon-search.svg" alt="Search icon">
+				<input id="search-input" type="text" name="places-input" autocomplete="off" placeholder="Search for a place...">
+			</div>
+
+			<div id="returned-cities-loader" class="returned-cities-loader"></div>
+
+			<div id="returned-cities-container" class="returned-cities-container">
+				<button class="returned-city-button" value="0"></button>
+				<button class="returned-city-button" value="1"></button>
+				<button class="returned-city-button" value="2"></button>
+				<button class="returned-city-button" value="3"></button>
+			</div>
+
+			<button id="search-button">Search</button>
+		</div>
+	</section>
+
+	<section class="blocks">
+		<div class="city-block block">
+			<div class="info">
+				<span id="city-country"></span>
+				<span id="day-date-year"></span>
+			</div>
+
+			<div class="weather">
+				<img id="current-weather-img" src="" alt="">
+				<span id="main-temperature"></span>
+			</div>
+		</div>
+
+		<div class="hourly-forecast-block block">
+			<div class="top">
+				<h4>Hourly forecast</h4>
+				<select name="hourly-forecast-select" id="hourly-forecast-select">
+					<option></option>
+					<option></option>
+					<option></option>
+					<option></option>
+					<option></option>
+					<option></option>
+					<option></option>
+				</select>
+			</div>
+
+			<div class="hours-container">
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+				<div class="hour-container">
+					<div class="icon-time-container">
+						<img class="hourly-weather-icon" src="" alt="">
+						<span class="hour-time"></span>
+					</div>
+
+					<span class="hour-temperature"></span>
+				</div>
+			</div>
+		</div>
+
+		<div class="feels-like-block misc-block block">
+			<h4>Feels like</h4>
+			<span id="feels-like-temperature"></span>
+		</div>
+
+		<div class="humidity-block misc-block block">
+			<h4>Humidity</h4>
+			<span id="humidity"></span>
+		</div>
+
+		<div class="wind-block misc-block block">
+			<h4>Wind</h4>
+			<span id="wind-speed"></span>
+		</div>
+
+		<div class="precipitation-block misc-block block">
+			<h4>Precipitation</h4>
+			<span id="precipitation"></span>
+		</div>
+
+		<div class="daily-forecast-block block">
+			<h3>Daily forecast</h3>
+			<div class="days-container">
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+				<div class="day-container">
+					<span class="day-span"></span>
+					<img class="daily-weather-icon" src="" alt="">
+					<div class="max-min-temperature-container">
+						<span class="max-temperature"></span>
+						<span class="min-temperature"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+    <!--<div class="attribution">
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>. 
+        Coded by <a href="#">Youre Here</a>.
+    </div>-->
+
+</body>
+</html>

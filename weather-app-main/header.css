@@ -1,0 +1,105 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    height: 9vh;
+}
+
+header .units-select-container {
+    border-radius: 5px;
+    background-color: var(--darkest-grey-color);
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 10%;
+    height: 60%;
+    cursor: pointer;
+}
+
+header .units-select-container:hover {
+    background-color: var(--mid-grey-color);
+}
+
+header .units-select-hover-container {
+    border: 1px solid var(--light-grey-color);
+    border-radius: 10px;
+    background-color: var(--darkest-grey-color);
+    position: absolute;
+    top: 8%;
+    right: 5%;
+    padding: 5px;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 15%;
+    height: 40%;
+}
+
+header .units-select-hover-container #change-units-button {
+    padding-left: 4%;
+    width: 90%;
+    height: 10% !important;
+}
+
+header .units-select-hover-container div {
+    border-bottom: 1px solid var(--light-grey-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    width: 90%;
+    height: 30%;
+}
+
+header .units-select-hover-container div:last-child {
+    border-bottom: none;
+}
+
+header .units-select-hover-container h6 {
+    color: var(--lightest-grey-color);
+    font-size: 0.8em;
+    font-weight: normal;
+    margin-top: 3%;
+}
+
+header .units-select-hover-container button {
+    border: none;
+    background: none;
+    color: var(--white-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+    text-align: start;
+    cursor: pointer;
+}
+
+header .units-select-hover-container button img {
+    width: 10%;
+    margin-right: 5px;
+}
+
+header .units-select-hover-container #celsius-button, #kmh-button, #millimeters-button {
+    margin-top: 3%;
+}
+
+header .units-select-hover-container .units-button-active {
+    background-color: var(--mid-grey-color);
+}
+
+header .units-select-hover-container #fahrenheit-button, #mph-button, #inches-button {
+    margin-bottom: 1%;
+}
+
+header .units-select-hover-container #fahrenheit-button img, #mph-button img, #inches-button img{
+    display: none;
+}
+
+header .units-select-hover-container button:hover {
+    border-radius: 8px;
+    background-color: var(--mid-grey-color);
+}

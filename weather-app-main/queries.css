@@ -1,0 +1,208 @@
+@media only screen and (min-width: 426px) and (max-width: 768px) {
+
+    header {
+        font-size: 0.8em;
+    }
+
+    .search-area-container {
+        width: 60%;
+    }
+    
+    .misc-block span {
+        font-size: 0.9em;
+    }
+
+    .hourly-forecast-block span {
+        font-size: 0.8em;
+    }
+
+    .hourly-forecast-block h4 {
+        font-size: 0.9em;
+    }
+
+    .hourly-forecast-block select {
+        width: 40%;
+    }
+
+    .daily-forecast-block span {
+        font-size: 0.7em;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+
+    header {
+        width: 90%;
+    }
+
+    header .units-select-container {
+        width: 25%;
+        height: 80%;
+    }
+
+    header .units-select-hover-container {
+        width: 50%;
+    }
+
+    .hero {
+        margin-top: 3%;
+        height: 30vh;
+    }
+
+    .hero h1 {
+        font-size: 1.7rem;
+        text-align: center;
+    }
+
+    .hero .search-area-container {
+        flex-direction: column;
+        width: 100%;
+        height: 60%;
+    }
+
+    .hero .input-container {
+        width: 100%;
+        height: 45%;
+    }
+
+    .hero #search-button {
+        width: 100%;
+        height: 45%;
+    }
+
+    .blocks {
+        margin-top: 5%;
+        width: 90%;
+        height: fit-content;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+    }
+
+    .city-block {
+        border-radius: 10px;
+        font-size: 0.8em;
+        flex-direction: column;
+        justify-content: center;
+        height: 35vh;
+        grid-column: 1 / 3;
+        grid-row: 1 / 2;
+    }
+
+    .city-block .info {
+        width: 60%;
+    }
+
+    .city-block .weather img {
+        width: 80%;
+    }
+
+    .city-block .weather #main-temperature {
+        font-size: 1.7em;
+    }
+
+    .hourly-forecast-block {
+        height: fit-content;
+        grid-column: 1 / 3;
+        grid-row: 5 / 6;
+    }
+
+    .hourly-forecast-block .hour-container {
+        margin-bottom: 5%;
+        height: 8vh;
+    }
+
+    .feels-like-block {
+        grid-column: 1 / 2;
+        grid-row: 2 / 3;
+    }
+
+    .humidity-block {
+        grid-column: 2 / 3;
+        grid-row: 2 / 3;
+    }
+
+    .wind-block {
+        grid-column: 1 / 2;
+        grid-row: 3 / 4;
+    }
+
+    .precipitation-block {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+    }
+
+    .misc-block {
+        border-radius: 10px;
+        font-size: 1.2em;
+        height: 20vh;
+    }
+
+    .daily-forecast-block {
+        height: fit-content;
+        grid-column: 1 / 3;
+        grid-row: 4 / 5;
+    }
+
+    .daily-forecast-block .days-container {
+        margin-top: 2%;
+        flex-wrap: wrap;
+    }
+
+    .daily-forecast-block .days-container .day-container {
+        margin-bottom: 5%;
+        min-width: 30%;
+        min-height: 30vh;
+    }
+}
+
+@media only screen and (max-width: 375px) {
+    
+    header img {
+        width: 50%;
+    }
+
+    header .units-select-container {
+        font-size: 0.9em;
+        width: 30%;
+    }
+
+    header .units-select-container img {
+        width: 18%;
+    }
+
+    .hero h1 {
+        font-size: 1.5em;
+    }
+
+    .city-block {
+        font-size: 0.7em;
+    }
+
+    .misc-block {
+        font-size: 1em;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+
+    header .units-select-container {
+        font-size: 0.8em;
+        width: 30%;
+    }
+
+    header .units-select-container img {
+        width: 17%;
+    }
+
+    .hero h1 {
+        font-size: 1.2em;
+    }
+
+    .city-block {
+        font-size: 0.7em;
+    }
+
+    .misc-block {
+        font-size: 1em;
+    }
+}
