@@ -7,6 +7,10 @@
     .search-area-container {
         width: 60%;
     }
+
+    .hero .returned-cities-loader, .returned-cities-container {
+        width: 43.5%;
+    }
     
     .misc-block span {
         font-size: 0.9em;
@@ -68,6 +72,11 @@
     .hero #search-button {
         width: 100%;
         height: 45%;
+    }
+
+    .hero .returned-cities-loader, .returned-cities-container {
+        top: 30%;
+        width: 90%;
     }
 
     .blocks {
@@ -205,4 +214,5 @@
     .misc-block {
         font-size: 1em;
     }
+
 }
